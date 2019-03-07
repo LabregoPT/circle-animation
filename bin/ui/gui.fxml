@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.shape.Circle?>
+
+
+<Pane fx:id="containerPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onMouseClicked="#createCircle" prefHeight="500.0" prefWidth="700.0" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ui.Controller">
+   <children>
+      <Button fx:id="mainButton" layoutX="14.0" layoutY="461.0" mnemonicParsing="false" onAction="#startAnim" text="Start Circle Animation" />
+      <Label layoutX="504.0" layoutY="465.0" text="Click anywhere to add a new circle" />
+      <Circle fx:id="initCircle" fill="#2aff1f" layoutX="91.0" layoutY="94.0" radius="20.0" stroke="BLACK" strokeType="INSIDE" />
+   </children>
+   <padding>
+      <Insets bottom="14.0" left="14.0" right="14.0" top="14.0" />
+   </padding>
+</Pane>
