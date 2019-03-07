@@ -11,11 +11,11 @@ public class CircleThread extends Thread {
 	private Circle guiCircle;
 	private Controller gui;
 	
-	public CircleThread(int r, int x, int y, Color c, Controller g, Circle guiC) {
+	public CircleThread(int r, int x, int y, Controller g, Circle guiC) {
 		if((int)Math.random()%2==0) {
-			circle = new Ball(r, 1, x, y, c);
+			circle = new Ball(r, 1, x, y);
 		}else {
-			circle = new Ball(r, -1, x, y, c);
+			circle = new Ball(r, -1, x, y);
 		}
 		gui = g;
 		guiCircle = guiC;

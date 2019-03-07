@@ -1,32 +1,22 @@
 package ui;
 
-import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.scene.control.Button;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.Pane;
+import javafx.scene.paint.Color;
 import javafx.scene.shape.Circle;
 import java.util.*;
 import threads.*;
+import model.Ball;
 
 public class Controller {
 	
 	@FXML
 	private Pane containerPane;
 	
-	@FXML
-	private Button mainButton;
-	
-	@FXML
-	private Circle initCircle;
-	
-	private List circles;
-	private List threads;
-	
-	@FXML
-	void startAnim(ActionEvent e) {
-		
-	}
+	private List<Circle> circles;
+	private List<CircleThread> threads;
+
 	
 	@FXML
 	void initialize() {
@@ -36,7 +26,13 @@ public class Controller {
 	
 	@FXML
 	void createCircle(MouseEvent m) {
-		
+		Random rnd = new Random();
+		Color color = new Color(rnd.nextDouble(),rnd.nextDouble(),rnd.nextDouble(),1);
+		Circle c = new Circle(m.getSceneX(), m.getSceneY(), 25.0, color);
+		circles.add(c);
+		CircleThread ct = new CircleThread(25, (int)m.getSceneX(), (int)m.getSceneY(),this, c);
+		threads.add(ct);
+		containerPane.getChildren().add(c);
 	}
 	
 	public void move(Circle c, int status) {
