@@ -33,10 +33,21 @@ public class Controller {
 		CircleThread ct = new CircleThread(25, (int)m.getSceneX(), (int)m.getSceneY(),this, c);
 		threads.add(ct);
 		containerPane.getChildren().add(c);
+		ct.start();
 	}
 	
-	public void move(Circle c, int status) {
-		
+	public void move(Circle c, int status, CircleThread t) {
+		c.setLayoutX(5*status+c.getLayoutX());
+		if(c.getLayoutX()+c.getRadius() == containerPane.getMaxWidth()) {
+			t.turnCircle();
+		}
+		if(c.getLayoutX() == 0) {
+			t.turnCircle();
+		}
+	}
+	
+	public List<Circle> getCircles(){
+		return circles;
 	}
 	
 }

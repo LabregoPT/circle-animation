@@ -1,13 +1,14 @@
 package model;
 
 public class Ball {
-	private int radius;
+	public final static int LEFT = -1;
+	public final static int RIGHT = 1;
+	
 	private int status;
 	private int xCoordinate;
 	private int yCoordinate;
 	
-	public Ball(int r, int s, int x, int y) {
-		radius = r;
+	public Ball(int s, int x, int y) {
 		status = s;
 		xCoordinate = x;
 		yCoordinate = y;
@@ -25,7 +26,8 @@ public class Ball {
 		return status;
 	}
 	
-	public int getRadius() {
-		return radius;
+	public void setStatus() {
+		status = status*-1;
 	}
+	
 }
